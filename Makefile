@@ -26,7 +26,7 @@ tunnelCID:
 	@docker run --name=$(NAME) \
 	--cidfile="tunnelCID" \
 	-d \
- $(PORTS) \
+	$(PORTS) \
 	-v $(KEYS):/root/keys \
 	-t $(TAG)
 
