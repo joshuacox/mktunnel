@@ -21,6 +21,7 @@ runprod: tunnelCID
 tunnelCID:
 	$(eval NAME := $(shell cat NAME))
 	$(eval TAG := $(shell cat TAG))
+	$(eval KEYS := $(shell cat KEYS))
 	$(eval PORTS := $(shell cat PORTS))
 	@docker run --name=$(NAME) \
 	--cidfile="tunnelCID" \
