@@ -34,21 +34,21 @@ builddocker:
 	/usr/bin/time -v docker build -t `cat TAG` .
 
 kill:
-	-@docker kill `cat cid`
+	-@docker kill `cat tunnelCID`
 
 rm-image:
-	-@docker rm `cat cid`
-	-@rm cid
+	-@docker rm `cat tunnelCID`
+	-@rm tunnelCID
 
 rm: kill rm-image
 
 clean: rm
 
 enter:
-	docker exec -i -t `cat cid` /bin/bash
+	docker exec -i -t `cat tunnelCID` /bin/bash
 
 logs:
-	docker logs -f `cat cid`
+	docker logs -f `cat tunnelCID`
 
 NAME:
 	@while [ -z "$$NAME" ]; do \
