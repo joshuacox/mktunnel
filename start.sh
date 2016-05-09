@@ -5,6 +5,6 @@ chmod 600 /root/.ssh/id*
 
 chown root. /root/.ssh/id*
 
-/bin/bash /root/command.sh
+/bin/bash /command.sh
 
 /usr/sbin/sshd -D
