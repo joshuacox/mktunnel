@@ -14,6 +14,8 @@ build: NAME TAG builddocker
 # run a plain container
 run: build rundocker
 
+rundocker: runprod
+
 runprod: tunnelCID
 
 tunnelCID:
