@@ -22,7 +22,6 @@ tunnelCID:
 	$(eval NAME := $(shell cat NAME))
 	$(eval TAG := $(shell cat TAG))
 	$(eval PORTS := $(shell cat PORTS))
-	chmod 777 $(TMP)
 	@docker run --name=$(NAME) \
 	--cidfile="tunnelCID" \
 	-d \
