@@ -11,6 +11,6 @@ chmod 600 /root/.ssh/known_hosts
 chown root. /root/.ssh/id*
 chown root. /root/.ssh/known_hosts
 
-/bin/bash /command.sh
+autossh -M $MONITOR_PORT  -g -L $LOCAL_PORT:0.0.0.0:$FORWARDED_PORT -f -p$REMOTE_PORT -N $REMOTE_USER@$REMOTE_HOST
 
 /usr/sbin/sshd -D
