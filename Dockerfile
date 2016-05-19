@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Josh Cox <josh 'at' webhosting coop>
 
-RUN apt-get update && apt-get install -y autossh ; \
+RUN apt-get update && apt-get install -y autossh openssh-server ; \
 apt-get -y autoremove ; \
 apt-get clean ; \
 rm -Rf /var/lib/apt/lists/*
