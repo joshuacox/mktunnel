@@ -10,7 +10,7 @@ help:
 	@echo ""  This is merely a base image for usage read the README file
 	@echo ""   1. make run       - build and run docker container
 
-build: NAME TAG MONITOR_PORT LOCAL_PORT FORWARDED_PORT REMOTE_PORT REMOTE_USER REMOTE_HOST builddocker
+build: NAME TAG MONITOR_PORT LOCAL_PORT FORWARDED_PORT REMOTE_PORT REMOTE_USER REMOTE_HOST KEYS PORTS builddocker
 
 # run a plain container
 run: build rundocker
@@ -62,6 +62,16 @@ enter:
 
 logs:
 	docker logs -f `cat tunnelCID`
+
+KEYS:
+	@while [ -z "$$KEYS" ]; do \
+		read -r -p "Enter the path to the keys you wish to associate with this container ( i.e. /home/user/.ssh ) [KEYS]: " KEYS; echo "$$KEYS">>KEYS; cat KEYS; \
+	done ;
+
+PORTS:
+	@while [ -z "$$PORTS" ]; do \
+		read -r -p "Enter the ports you wish to associate with this container (12080:12080) [PORTS]: " PORTS; echo "$$PORTS">>PORTS; cat PORTS; \
+	done ;
 
 NAME:
 	@while [ -z "$$NAME" ]; do \
