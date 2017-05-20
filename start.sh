@@ -15,6 +15,7 @@ if [ ! -z ${KEY_RSA+x} ]
     echo "$KEY_RSA" > /root/.ssh/id_rsa
 fi
 
+touch ~/.ssh/known_hosts
 ssh-keyscan -t rsa,dsa -p $REMOTE_PORT $REMOTE_HOST 2>&1 | sort -u - ~/.ssh/known_hosts > ~/.ssh/tmp_hosts
 mv ~/.ssh/tmp_hosts ~/.ssh/known_hosts
 
