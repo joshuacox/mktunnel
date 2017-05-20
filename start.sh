@@ -4,14 +4,20 @@ echo -e  'y\n'|ssh-keygen -q -t ecdsa -N "" -f ~/.ssh/id_ecdsa > /dev/null 2>&1
 
 if [ ! -z ${KEY_ECDSA+x} ]
   then
+    rm ~/.ssh/id_ecdsa
+    rm ~/.ssh/id_ecdsa.pub
     echo "$KEY_ECDSA" > /root/.ssh/id_ecdsa
 fi
 if [ ! -z ${KEY_DSA+x} ]
   then
+    rm ~/.ssh/id_dsa
+    rm ~/.ssh/id_dsa.pub
     echo "$KEY_DSA" > /root/.ssh/id_dsa
 fi
 if [ ! -z ${KEY_RSA+x} ]
   then
+    rm ~/.ssh/id_rsa
+    rm ~/.ssh/id_rsa.pub
     echo "$KEY_RSA" > /root/.ssh/id_rsa
 fi
 
