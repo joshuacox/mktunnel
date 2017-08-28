@@ -1,0 +1,13 @@
+Values:
+KEY_ECDSA:      KEY_ECDSA
+FORWARDED_PORT: 23455
+KEYS: '/home/USER/.ssh'
+LOCAL_PORT: 8080
+MONITOR_PORT: 8081
+PORTS: '-p 8080:8080'
+REMOTE_USER: 'octossh'
+REMOTE_HOST: 'ssh.example.com'
+REMOTE_PORT: 2222
+host_lable: private=true
+externallink: ''
+TAG: latest

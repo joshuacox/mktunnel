@@ -1,10 +1,20 @@
-FROM debian:stretch
+FROM alpine:3.6
 MAINTAINER Josh Cox <josh 'at' webhosting coop>
 
-RUN apt-get update && apt-get install -y autossh openssh-server ; \
-apt-get -y autoremove ; \
-apt-get clean ; \
-rm -Rf /var/lib/apt/lists/*
+ENV OCTOSSH_UPDATED=20170824 \
+BUILD_PACKAGES='openssh-server openssh-client autossh curl ca-certificates shadow'
+
+RUN apk update && apk upgrade \
+  && apk add --no-cache $BUILD_PACKAGES \
+  && rm -rf /var/cache/apk/* \
+  && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
+  && mkdir /var/run/sshd \
+  && mkdir -p /home/octossh \
+  && adduser -S octossh \
+  && addgroup octossh \
+  && chown -R octossh. /home/octossh
+
+WORKDIR /home/octossh
 
 RUN mkdir /var/run/sshd
 # RUN echo 'root:screencast' | chpasswd
