@@ -12,6 +12,10 @@ octotunnel:
   - "${LOCAL_PORT}:${LOCAL_PORT}"
   labels:
     io.rancher.container.hostname_override: container_name
+  {{- if ne .Values.host_label ""}}
     io.rancher.scheduler.affinity:host_label: ${host_label}
+  {{- end}}
+{{- if ne .Values.extlink ""}}
   external_links:
     - ${external_link}:extlink
+{{- end}}

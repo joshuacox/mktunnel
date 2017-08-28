@@ -22,3 +22,6 @@ clean:
 
 gotplinstall:
 	go get github.com/tsg/gotpl
+
+build:
+	docker build -t `cat TAG` .

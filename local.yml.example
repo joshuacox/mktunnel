@@ -8,6 +8,6 @@ PORTS: '-p 8080:8080'
 REMOTE_USER: 'octossh'
 REMOTE_HOST: 'ssh.example.com'
 REMOTE_PORT: 2222
-host_lable: private=true
+host_label: 'private=true'
 externallink: ''
 TAG: latest

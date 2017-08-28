@@ -16,7 +16,7 @@ RUN apk update && apk upgrade \
 
 WORKDIR /home/octossh
 
-RUN mkdir /var/run/sshd
+#RUN mkdir /var/run/sshd
 # RUN echo 'root:screencast' | chpasswd
 # RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
